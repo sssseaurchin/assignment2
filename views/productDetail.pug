@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        title= product.name
+        link(rel="stylesheet", href="/stylesheets/style.css")
+    body
+        header
+            div.logo
+                a(href="/")
+                    img(src="images/logo.png", alt="Site Logo")
+            div.search-bar
+                form(action="/search" method="get")
+                    input(type="text", name="query", placeholder="Search...")
+                    button(type="submit") Search
+        main
+            .breadcrumbs
+                each category, index in product.categories.split(',')
+                    a(href='/search?query=' + category.trim())= category.trim()
+                    if index < product.categories.split(',').length - 1
+                        span > /
+            .product-detail
+                .product-image
+                    img(src=product.image_url, alt=product.name)
+
+                .product-info
+                    h2= product.name
+                    p= product.description
+                    p(class="price") Price: $#{product.price}
+                    p(class="category") Categories: #{product.categories}
+                    a(href="#" class="add-to-cart") Add to Cart

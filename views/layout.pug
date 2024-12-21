@@ -1,0 +1,19 @@
+// layout.pug
+
+doctype html
+html(lang="en")
+  head
+    title Shopping Site
+    link(rel="stylesheet", href="/stylesheets/style.css")
+  body
+    header
+      div.logo
+        img(src="images/logo.png", alt="Site Logo")
+      div.search-bar
+        form(action="/search" method="get")
+          input(type="text", name="query", placeholder="Search...")
+          button(type="submit") Search
+    main
+      block content  // This is where content from other templates will go
+    footer
+      p &copy; 2024 Shopping Site
