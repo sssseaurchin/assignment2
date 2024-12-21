@@ -18,6 +18,8 @@ var db = new sqlite3.Database('./db/products.db', (err) => {
   }
 });
 
+require('./db/init_db');
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
